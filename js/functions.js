@@ -23,7 +23,7 @@ shuffledArray.forEach(imgObjItem => {
         </div>
         <div class="back-img">
             <a href="javascript:;">
-                <img class="view-img" src="" data-id=${imgObjItem.imgId} data-title="${imgObjItem.imgTitle}">
+                <img class="view-img" src="${imgObjItem.imgSource}" data-id=${imgObjItem.imgId} data-title="${imgObjItem.imgTitle}">
             </a>
         </div>
     </div> 
@@ -31,22 +31,40 @@ shuffledArray.forEach(imgObjItem => {
 });
 
 
+const imgItems = document.querySelectorAll('.img-item');
 
-imgItem.forEach(item => {
-   
-    item.addEventListener('click',()=>{
-        const imgItem = document.querySelectorAll(".img-item")
-        const imgTitle = document.querySelectorAll(".view-img")
-        
-        imgTitle.forEach(element => {
-            const titleText = element.dataset.title
-            console.log(titleText)
-        });
-
-     
-        
-    })
+imgItems.forEach(item => {
+    item.addEventListener('click', handleCardClick);
 });
+
+function handleCardClick() {
+    const backImg = this.querySelector('.back-img');
+    backImg.classList.add('active');
+    
+    if (backImg.classList.contains('active')) {
+        setTimeout(() => {
+            backImg.classList.remove('active');
+              
+             const allClosed = document.querySelectorAll('.back-img.active').length === 0;
+             if (allClosed) {
+                 imgItems.forEach(item => {
+                     item.addEventListener('click', handleCardClick);
+                 });
+             }
+        }, 3000);
+    }
+
+    const openedCards = document.querySelectorAll('.back-img.active');
+  
+
+    if (openedCards.length === 2) {
+        imgItems.forEach(item => {
+            item.removeEventListener('click', handleCardClick);
+        });
+    }
+     
+}
+
 
 }
 
