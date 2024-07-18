@@ -1,0 +1,31 @@
+.img-box-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    max-width: 720px;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.img-item {
+    width: 150px;
+    height: 150px;
+    background: #eee;
+    position: relative;
+}
+.img-item .front-img a,.img-item .back-img a {
+    display: block;
+    height: 100%;
+}
+
+.front-img,.back-img {
+    height: 100%;
+}
+.back-img {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 0;
+    width: 100%;
+}
