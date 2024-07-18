@@ -39,9 +39,21 @@
     width: 100%;
     object-fit: cover;
 }
-.back-img.active {
+.back-img.active,.back-img.matched {
     opacity: 1;
     visibility: visible;
     z-index: 99;
     transform: rotateY(0deg);
+}
+.matched-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    margin: 20px  0 0;
+}
+
+.matched-count {
+    font-size: 30px;
+    font-weight: 500;
 }
