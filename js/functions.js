@@ -61,7 +61,14 @@ const matchAppFunct = () => {
                     secondCard.classList.remove('active');
                     let count = Number(matchedCount.textContent);
                     matchedCount.textContent = count + 1;
+                    setTimeout(()=>{
+                        if((count + 1)  === 4 ){
+                            rootElement.innerHTML = ""
+                        }
+                    })
                 }, 500);
+
+               
             } else {
      
                 setTimeout(() => {
