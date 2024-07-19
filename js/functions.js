@@ -22,7 +22,7 @@ const matchAppFunct = () => {
             <div class="img-item">
                 <div class="front-img">
                     <a href="javascript:;">
-                        <img src="https://via.placeholder.com/150x150?text=?">
+                        <img src="https://via.placeholder.com/180x180?text=?">
                     </a>
                 </div>
                 <div class="back-img">
@@ -64,8 +64,21 @@ const matchAppFunct = () => {
                     setTimeout(()=>{
                         if((count + 1)  === 4 ){
                             rootElement.innerHTML = ""
+                            const wrapperElement = document.createElement('div')
+                            wrapperElement.classList.add('wrapper')
+                            rootElement.appendChild(wrapperElement)
+                            for (let i = 149; i > 0; i--) { 
+                                
+                                const confettiElement = document.createElement('div')
+                                confettiElement.classList.add(`confetti-${i}`)
+                                wrapperElement.insertAdjacentElement('beforeend',confettiElement)
+                                
+                            }
+                            setTimeout(()=>{
+                                wrapperElement.insertAdjacentHTML("beforeend",`<div class="success-text">TEBRİKLER OYUNU KAZANDINIZ.</div>`)
+                            },600)
                         }
-                    })
+                    },500)
                 }, 500);
 
                
